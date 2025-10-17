@@ -5,7 +5,7 @@
 <div class="container mt-4">
     <h1 class="mb-4">Amats tabula</h1>
 
-    <a href="/data/createAmats/{{$item->id}}">
+    <a href="/data/createAmats">
         <button class="btn btn-warning btn-sm">Pievinot</button>
     </a>
 
