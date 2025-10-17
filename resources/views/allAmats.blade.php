@@ -6,7 +6,7 @@
     <h1 class="mb-4">Amats tabula</h1>
 
     <a href="/data/createAmats/{{$item->id}}">
-        <button class="btn btn-warning btn-sm">Rediģēt</button>
+        <button class="btn btn-warning btn-sm">Pievinot</button>
     </a>
 
     @if($errors->any())
