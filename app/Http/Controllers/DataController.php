@@ -86,6 +86,8 @@ public function showDarbinieksDetails($id)
     return view('detailsDarbinieks', ['darbinieks' => $darbinieks -> find($id)]);
 }
 
+
+//______________________________________________________
 //Создания
 public function newSubmit(Request $dati)
 {
@@ -107,11 +109,28 @@ public function newSubmit(Request $dati)
     $data->save();
 
     return redirect('/contacts')->with('success', 'Ziņa veiksmīgi nosūtīta!');
-
-    //return dd($dati->all());
-    //return back()->with('success', 'Ziņa veiksmīgi nosūtīta!');
 }
 
+public function createAmats()
+{
+    return view('createAmats'); // создаём шаблон createAmats.blade.php
+}
+
+public function newSubmitAmats(Request $amati)
+{
+
+    $validated = $amati->validate([
+        'nosaukums' => 'required|string|min:3|max:90',
+    ]);
+
+    $amats = new Amats();
+    $amats->nosaukums = $amati->input('nosaukums');
+    $amats->save();
+
+    return redirect('data/allAmats')->with('success', 'Ziņa veiksmīgi nosūtīta!');
+}
+
+//______________________________________________________
 //Редактирования
 public function editAmats($id)
 {
@@ -124,7 +143,6 @@ public function editAmats($id)
     return view('editAmats', ['amats' => $amats]);
 }
 
-// Сохранить изменения
 public function updateAmats(Request $request, $id)
 {
     $validated = $request->validate([
@@ -142,20 +160,4 @@ public function updateAmats(Request $request, $id)
 
     return redirect('/data/allAmats')->with('success', 'Amats veiksmīgi atjaunināts!');
 }
-
-public function newSubmitAmats(Request $amati)
-{
-
-    $validated = $amati->validate([
-        'nosaukums' => 'required|string|min:3|max:90',
-    ]);
-
-    $amats = new Amats();
-    $amats->nosaukums = $amati->input('nosaukums');
-    $amats->save();
-
-    return redirect('data/allAmats')->with('success', 'Ziņa veiksmīgi nosūtīta!');
-}
-
-
 }
