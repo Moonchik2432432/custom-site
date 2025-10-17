@@ -20,9 +20,9 @@
           </a>
 
           <ul class="nav col-12 col-lg-auto mb-2 justify-content-center mb-md-0">
-            <li><a href="http://voronovs.test/" class="nav-link px-2 link-dark">Home</a></li>
-            <li><a href="http://voronovs.test/data" class="nav-link px-2 link-dark">Data</a></li>
-            <li><a href="http://voronovs.test/contacts" class="nav-link px-2 link-dark">Kontakts</a></li>
+            <li><a href="/" class="nav-link px-2 link-dark">Home</a></li>
+            <li><a href="/data" class="nav-link px-2 link-dark">Data</a></li>
+            <li><a href="/contacts" class="nav-link px-2 link-dark">Kontakts</a></li>
           </ul>
 
           <div class="text-end">
