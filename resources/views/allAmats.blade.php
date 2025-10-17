@@ -7,7 +7,7 @@
 
     <a href="/data/createAmats">
         <button class="btn btn-success btn-sm">Pievinot</button>
-    </a> <br> <br>
+    </a> <br>
 
     @if($errors->any())
     @foreach ($errors->all() as $kluda)

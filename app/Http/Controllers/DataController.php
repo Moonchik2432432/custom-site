@@ -32,8 +32,8 @@ class DataController extends Controller
 
     public function showAllDarbinieks()
     {
-        $darbinieks = Darbinieks::with('amats')->orderBy('id', 'asc')->get();
-        return view('allDarbinieks', ['darbinieks' => $darbinieks]);
+        $darbinieks = new Darbinieks();
+        return view('allDarbinieks',['darbinieks' => $darbinieks->orderBy('id', 'asc') ->get()]);
     }
 
     //Функций для удаления
@@ -85,7 +85,6 @@ public function showDarbinieksDetails($id)
     $darbinieks = new Darbinieks;
     return view('detailsDarbinieks', ['darbinieks' => $darbinieks -> find($id)]);
 }
-
 
 //______________________________________________________
 //Создания
