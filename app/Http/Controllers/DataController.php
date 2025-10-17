@@ -76,7 +76,7 @@ public function showKlientsDetails($id)
 
 public function showTvertneDetails($id)
 {
-    $tvertne = new Amats;
+    $tvertne = new Tvertne;
     return view('detailsTvertne', ['tvertne' => $tvertne -> find($id)]);
 }
 
