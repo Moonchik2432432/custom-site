@@ -19,9 +19,9 @@
     </a>
 
     <ul class="nav col-md-4 justify-content-end">
-      <li class="nav-item"><a href="http://voronovs.test/" class="nav-link px-2 text-muted">Home</a></li>
-      <li class="nav-item"><a href="http://voronovs.test/data" class="nav-link px-2 text-muted">Data</a></li>
-      <li class="nav-item"><a href="http://voronovs.test/contacts" class="nav-link px-2 text-muted">Kontakts</a></li>
+      <li class="nav-item"><a href="/" class="nav-link px-2 text-muted">Home</a></li>
+      <li class="nav-item"><a href="/data" class="nav-link px-2 text-muted">Data</a></li>
+      <li class="nav-item"><a href="/contacts" class="nav-link px-2 text-muted">Kontakts</a></li>
     </ul>
   </footer>
 </div>
