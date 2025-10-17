@@ -19,13 +19,13 @@
     <hr />
     <ul class="nav nav-pills flex-column mb-auto">
       <li class="nav-item">
-        <a href="http://voronovs.test/" class="nav-link active" aria-current="page">Maja</a>
+        <a href="/" class="nav-link active" aria-current="page">Maja</a>
       </li>
       <li>
-        <a href="http://voronovs.test/data" class="nav-link">Data</a>
+        <a href="/data" class="nav-link">Data</a>
       </li>
       <li>
-        <a href="http://voronovs.test/contacts" class="nav-link">Kontakts</a>
+        <a href="/contacts" class="nav-link">Kontakts</a>
       </li>
     </ul>
     <hr />
