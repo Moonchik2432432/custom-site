@@ -34,8 +34,15 @@ Route::post('/data/newSubmit', [DataController::class, 'newSubmit']);
 Route::get('/data/createAmats', [DataController::class, 'createAmats']);
 Route::post('/data/newSubmitAmats', [DataController::class, 'newSubmitAmats']);
 
+Route::get('/data/createDarbinieks', [DataController::class, 'createDarbinieks']);
+Route::post('/data/newSubmitDarbinieks', [DataController::class, 'storeDarbinieks']);
+
 Route::get('/data/editAmats/{id}', [DataController::class, 'editAmats']);
 Route::put('/data/updateAmats/{id}', [DataController::class, 'updateAmats']);
+
+// Редактирование Darbinieks
+Route::get('/data/editDarbinieks/{id}', [DataController::class, 'editDarbinieks']);
+Route::put('/data/updateDarbinieks/{id}', [DataController::class, 'updateDarbinieks']);
 
 // Route::post('/data/newSubmit', function(){
 //     return dd(Request->all());

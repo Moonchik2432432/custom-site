@@ -114,7 +114,6 @@ public function createAmats()
 {
     return view('createAmats'); // создаём шаблон createAmats.blade.php
 }
-
 public function newSubmitAmats(Request $amati)
 {
 
@@ -129,16 +128,42 @@ public function newSubmitAmats(Request $amati)
     return redirect('data/allAmats')->with('success', 'Ziņa veiksmīgi nosūtīta!');
 }
 
+public function createDarbinieks()
+{
+    $amati = Amats::all(); // чтобы выбрать должность
+    return view('createDarbinieks', ['amati' => $amati]); 
+}
+public function newSubmitDarbinieks(Request $request)
+{
+    $validated = $request->validate([
+        'Vards' => 'required|string|min:2|max:255',
+        'Uzvards' => 'required|string|min:2|max:255',
+        'Amats_ID' => 'required|exists:amats,id',
+        'Talrunis' => 'required|string|min:5|max:20',
+        'Lietotajs' => 'required|string|min:3|max:50',
+        'Parole' => 'required|string|min:4|max:255',
+    ]);
+
+    $darbinieks = new Darbinieks();
+    $darbinieks->Vards = $request->Vards;
+    $darbinieks->Uzvards = $request->Uzvards;
+    $darbinieks->Amats_ID = $request->Amats_ID;
+    $darbinieks->Talrunis = $request->Talrunis;
+    $darbinieks->Lietotajs = $request->Lietotajs;
+    $darbinieks->Parole = bcrypt($request->Parole);
+    $darbinieks->save();
+
+    return redirect('/data/allDarbinieks')->with('success', 'Darbinieks veiksmīgi pievienots!');
+}
+
 //______________________________________________________
 //Редактирования
 public function editAmats($id)
 {
     $amats = Amats::find($id);
-
     if (!$amats) {
         return redirect('/data/allAmats')->with('error', 'Amats nav!');
     }
-
     return view('editAmats', ['amats' => $amats]);
 }
 
@@ -147,16 +172,52 @@ public function updateAmats(Request $request, $id)
     $validated = $request->validate([
         'nosaukums' => 'required|string|min:3|max:90',
     ]);
-
     $amats = Amats::find($id);
-
     if (!$amats) {
         return redirect('/data/allAmats')->with('error', 'Amats nav!');
     }
-
     $amats->nosaukums = $request->input('nosaukums');
     $amats->save();
-
     return redirect('/data/allAmats')->with('success', 'Amats veiksmīgi atjaunināts!');
 }
+
+public function editDarbinieks($id)
+{
+    $darbinieks = Darbinieks::find($id);
+    $amati = Amats::all();
+    if (!$darbinieks) {
+        return redirect('/data/allDarbinieks')->with('error', 'Darbinieks nav!');
+    }
+    return view('editDarbinieks', ['darbinieks' => $darbinieks, 'amati' => $amati]);
+}
+
+public function updateDarbinieks(Request $request, $id)
+{
+    $validated = $request->validate([
+        'Vards' => 'required|string|min:2|max:255',
+        'Uzvards' => 'required|string|min:2|max:255',
+        'Amats_ID' => 'required|exists:amats,id',
+        'Talrunis' => 'required|string|min:5|max:20',
+        'Lietotajs' => 'required|string|min:3|max:50',
+        'Parole' => 'nullable|string|min:4|max:255', // если пароль не меняем
+    ]);
+
+    $darbinieks = Darbinieks::find($id);
+    if (!$darbinieks) {
+        return redirect('/data/allDarbinieks')->with('error', 'Darbinieks nav!');
+    }
+
+    $darbinieks->Vards = $request->Vards;
+    $darbinieks->Uzvards = $request->Uzvards;
+    $darbinieks->Amats_ID = $request->Amats_ID;
+    $darbinieks->Talrunis = $request->Talrunis;
+    $darbinieks->Lietotajs = $request->Lietotajs;
+    if ($request->Parole) {
+        $darbinieks->Parole = bcrypt($request->Parole);
+    }
+    $darbinieks->save();
+
+    return redirect('/data/allDarbinieks')->with('success', 'Darbinieks veiksmīgi atjaunināts!');
+}
+
 }
