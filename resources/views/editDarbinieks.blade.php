@@ -21,13 +21,9 @@
             <label for="Uzvards">Uzvards</label>
             <input type="text" class="form-control" name="Uzvards" value="{{ $darbinieks->Uzvards }}">
         </div>
-        <div class="mb-3">
+       <div class="mb-3">
             <label for="Amats_ID">Amats</label>
-            <select class="form-control" name="Amats_ID">
-                @foreach($amati as $amats)
-                    <option value="{{ $amats->id }}" @if($darbinieks->Amats_ID == $amats->id) selected @endif>{{ $amats->nosaukums }}</option>
-                @endforeach
-            </select>
+            <input type="text" class="form-control" name="Amats_ID" value="{{ $darbinieks->Talrunis }}">
         </div>
         <div class="mb-3">
             <label for="Talrunis">Talrunis</label>

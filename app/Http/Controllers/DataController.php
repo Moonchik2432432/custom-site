@@ -136,22 +136,23 @@ public function createDarbinieks()
 public function newSubmitDarbinieks(Request $request)
 {
     $validated = $request->validate([
-        'Vards' => 'required|string|min:2|max:255',
-        'Uzvards' => 'required|string|min:2|max:255',
-        'Amats_ID' => 'required|exists:amats,id',
-        'Talrunis' => 'required|string|min:5|max:20',
-        'Lietotajs' => 'required|string|min:3|max:50',
-        'Parole' => 'required|string|min:4|max:255',
+        'Vards' => 'required|string|max:255',
+        'Uzvards' => 'required|string|max:255',
+        'Amats_ID' => 'required|integer', // проверка просто число, без проверки существования
+        'Talrunis' => 'nullable|string|max:20',
+        'Lietotajs' => 'required|string|max:50',
+        'Parole' => 'required|string|max:255',
     ]);
 
-    $darbinieks = new Darbinieks();
-    $darbinieks->Vards = $request->Vards;
-    $darbinieks->Uzvards = $request->Uzvards;
-    $darbinieks->Amats_ID = $request->Amats_ID;
-    $darbinieks->Talrunis = $request->Talrunis;
-    $darbinieks->Lietotajs = $request->Lietotajs;
-    $darbinieks->Parole = bcrypt($request->Parole);
-    $darbinieks->save();
+
+        $darbinieks = new Darbinieks();
+        $darbinieks->Vards = $request->input('Vards');
+        $darbinieks->Uzvards = $request->input('Uzvards');
+        $darbinieks->Amats_ID = $request->input('Amats_ID');
+        $darbinieks->Talrunis = $request->input('Talrunis');
+        $darbinieks->Lietotajs = $request->input('Lietotajs');
+        $darbinieks->Parole = $request->input('Parole');
+        $darbinieks->save();
 
     return redirect('/data/allDarbinieks')->with('success', 'Darbinieks veiksmīgi pievienots!');
 }
@@ -193,28 +194,27 @@ public function editDarbinieks($id)
 
 public function updateDarbinieks(Request $request, $id)
 {
-    $validated = $request->validate([
-        'Vards' => 'required|string|min:2|max:255',
-        'Uzvards' => 'required|string|min:2|max:255',
-        'Amats_ID' => 'required|exists:amats,id',
-        'Talrunis' => 'required|string|min:5|max:20',
-        'Lietotajs' => 'required|string|min:3|max:50',
-        'Parole' => 'nullable|string|min:4|max:255', // если пароль не меняем
-    ]);
+$validated = $request->validate([
+    'Vards' => 'required|string|max:255',
+    'Uzvards' => 'required|string|max:255',
+    'Amats_ID' => 'required|integer', // проверка просто число, без проверки существования
+    'Talrunis' => 'nullable|string|max:20',
+    'Lietotajs' => 'required|string|max:50',
+    'Parole' => 'required|string|max:255',
+]);
 
     $darbinieks = Darbinieks::find($id);
     if (!$darbinieks) {
         return redirect('/data/allDarbinieks')->with('error', 'Darbinieks nav!');
     }
 
-    $darbinieks->Vards = $request->Vards;
-    $darbinieks->Uzvards = $request->Uzvards;
-    $darbinieks->Amats_ID = $request->Amats_ID;
-    $darbinieks->Talrunis = $request->Talrunis;
-    $darbinieks->Lietotajs = $request->Lietotajs;
-    if ($request->Parole) {
-        $darbinieks->Parole = bcrypt($request->Parole);
-    }
+    $darbinieks = new Darbinieks();
+    $darbinieks->Vards = $request->input('Vards');
+    $darbinieks->Uzvards = $request->input('Uzvards');
+    $darbinieks->Amats_ID = $request->input('Amats_ID');
+    $darbinieks->Talrunis = $request->input('Talrunis');
+    $darbinieks->Lietotajs = $request->input('Lietotajs');
+    $darbinieks->Parole = $request->input('Parole');
     $darbinieks->save();
 
     return redirect('/data/allDarbinieks')->with('success', 'Darbinieks veiksmīgi atjaunināts!');

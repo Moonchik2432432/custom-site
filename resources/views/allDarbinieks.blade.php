@@ -7,7 +7,7 @@
 
     <a href="/data/createDarbinieks">
         <button class="btn btn-success btn-sm">Pievinot</button>
-    </a> <br>
+    </a> <br> <br>
 
     @if($darbinieks->isEmpty())
         <p>Datus nav.</p>

@@ -22,11 +22,7 @@
         </div>
         <div class="mb-3">
             <label for="Amats_ID">Amats</label>
-            <select class="form-control" name="Amats_ID">
-                @foreach($amati as $amats)
-                    <option value="{{ $amats->id }}">{{ $amats->nosaukums }}</option>
-                @endforeach
-            </select>
+            <input type="text" class="form-control" name="Amats_ID">
         </div>
         <div class="mb-3">
             <label for="Talrunis">Talrunis</label>
