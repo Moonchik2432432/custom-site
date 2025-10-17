@@ -5,6 +5,10 @@
 <div class="container mt-4">
     <h1 class="mb-4">Darbinieks tabula</h1>
 
+    <a href="/data/createDarbinieks">
+        <button class="btn btn-success btn-sm">Pievinot</button>
+    </a> <br>
+
     @if($darbinieks->isEmpty())
         <p>Datus nav.</p>
     @else
@@ -33,6 +37,9 @@
                             </a>
                             <a href="/data/all/{{$item->id}}/showDarbinieksDetails">
                                 <button class="btn btn-success btn-sm">Informacija</button>
+                            </a>
+                            <a href="/data/editDarbinieks/{{$item->id}}">
+                                <button class="btn btn-warning btn-sm">Rediģēt</button>
                             </a>
                         </td>
                     </tr>
