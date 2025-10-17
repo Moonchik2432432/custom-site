@@ -10,7 +10,7 @@
         @endforeach
     @endif
 
-    <form action="/data/storeDarbinieks" method="POST">
+    <form action="/data/newSubmitDarbinieks" method="POST">
         @csrf
         <div class="mb-3">
             <label for="Vards">Vards</label>
