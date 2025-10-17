@@ -23,7 +23,7 @@
         </div>
        <div class="mb-3">
             <label for="Amats_ID">Amats</label>
-            <input type="text" class="form-control" name="Amats_ID" value="{{ $darbinieks->Talrunis }}">
+            <input type="text" class="form-control" name="Amats_ID" value="{{ $darbinieks->Amats_ID }}">
         </div>
         <div class="mb-3">
             <label for="Talrunis">Talrunis</label>
