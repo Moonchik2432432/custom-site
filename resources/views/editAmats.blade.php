@@ -10,7 +10,7 @@
         @endforeach
     @endif
 
-    <form action="/data/atjaunotAmats/{{ $amats->id }}" method="POST">
+    <form action="/data/updateAmats/{{ $amats->id }}" method="POST">
         @csrf
         @method('PUT')
 

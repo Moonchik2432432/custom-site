@@ -41,7 +41,7 @@
                             <a href="/data/all/{{$item->id}}/showAmatsDetails">
                                 <button class="btn btn-success btn-sm">Informacija</button>
                             </a>
-                            <a href="/data/rediģētAmats/{{$item->id}}">
+                            <a href="/data/editAmats/{{$item->id}}">
                                 <button class="btn btn-warning btn-sm">Rediģēt</button>
                             </a>
 
