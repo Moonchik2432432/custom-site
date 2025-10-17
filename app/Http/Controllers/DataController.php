@@ -86,6 +86,7 @@ public function showDarbinieksDetails($id)
     return view('detailsDarbinieks', ['darbinieks' => $darbinieks -> find($id)]);
 }
 
+//Создания
 public function newSubmit(Request $dati)
 {
 
@@ -112,7 +113,6 @@ public function newSubmit(Request $dati)
 }
 
 //Редактирования
-// Показать форму редактирования
 public function editAmats($id)
 {
     $amats = Amats::find($id);

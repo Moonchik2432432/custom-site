@@ -33,8 +33,8 @@ Route::get('/data/all/{id}/showTvertneDetails', [DataController::class, 'showTve
 Route::post('/data/newSubmit', [DataController::class, 'newSubmit']);
 Route::post('/data/newSubmitAmats', [DataController::class, 'newSubmitAmats']);
 
-Route::get('/data/rediģētAmats/{id}', [DataController::class, 'redigetAmats']);
-Route::put('/data/atjaunotAmats/{id}', [DataController::class, 'atjaunotAmats']);
+Route::get('/data/editAmats/{id}', [DataController::class, 'redigetAmats']);
+Route::put('/data/updateAmats/{id}', [DataController::class, 'atjaunotAmats']);
 
 // Route::post('/data/newSubmit', function(){
 //     return dd(Request->all());
