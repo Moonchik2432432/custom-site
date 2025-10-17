@@ -31,6 +31,7 @@ Route::get('/data/all/{id}/showKlientsDetails', [DataController::class, 'showKli
 Route::get('/data/all/{id}/showTvertneDetails', [DataController::class, 'showTvertneDetails']);
 
 Route::post('/data/newSubmit', [DataController::class, 'newSubmit']);
+Route::get('/data/createAmats', [DataController::class, 'createAmats']);
 Route::post('/data/newSubmitAmats', [DataController::class, 'newSubmitAmats']);
 
 Route::get('/data/editAmats/{id}', [DataController::class, 'editAmats']);
