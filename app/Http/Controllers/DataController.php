@@ -111,6 +111,38 @@ public function newSubmit(Request $dati)
     //return back()->with('success', 'Ziņa veiksmīgi nosūtīta!');
 }
 
+//Редактирования
+// Показать форму редактирования
+public function editAmats($id)
+{
+    $amats = Amats::find($id);
+
+    if (!$amats) {
+        return redirect('/data/allAmats')->with('error', 'Amats nav!');
+    }
+
+    return view('editAmats', ['amats' => $amats]);
+}
+
+// Сохранить изменения
+public function updateAmats(Request $request, $id)
+{
+    $validated = $request->validate([
+        'nosaukums' => 'required|string|min:3|max:90',
+    ]);
+
+    $amats = Amats::find($id);
+
+    if (!$amats) {
+        return redirect('/data/allAmats')->with('error', 'Amats nav!');
+    }
+
+    $amats->nosaukums = $request->input('nosaukums');
+    $amats->save();
+
+    return redirect('/data/allAmats')->with('success', 'Amats veiksmīgi atjaunināts!');
+}
+
 public function newSubmitAmats(Request $amati)
 {
 
