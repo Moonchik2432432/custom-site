@@ -6,8 +6,8 @@
     <h1 class="mb-4">Amats tabula</h1>
 
     <a href="/data/createAmats">
-        <button class="btn btn-warning btn-sm">Pievinot</button>
-    </a>
+        <button class="btn btn-success btn-sm">Pievinot</button>
+    </a> <br> <br>
 
     @if($errors->any())
     @foreach ($errors->all() as $kluda)
