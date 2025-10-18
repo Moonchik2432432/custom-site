@@ -30,19 +30,29 @@ Route::get('/data/all/{id}/showDarbinieksDetails', [DataController::class, 'show
 Route::get('/data/all/{id}/showKlientsDetails', [DataController::class, 'showKlientsDetails']);
 Route::get('/data/all/{id}/showTvertneDetails', [DataController::class, 'showTvertneDetails']);
 
+
+//Создания
 Route::post('/data/newSubmit', [DataController::class, 'newSubmit']);
+
 Route::get('/data/createAmats', [DataController::class, 'createAmats']);
 Route::post('/data/newSubmitAmats', [DataController::class, 'newSubmitAmats']);
 
 Route::get('/data/createDarbinieks', [DataController::class, 'createDarbinieks']);
 Route::post('/data/newSubmitDarbinieks', [DataController::class, 'storeDarbinieks']);
 
+Route::get('/data/createKlients', [DataController::class, 'createKlients']);
+Route::post('/data/newSubmitKlients', [DataController::class, 'newSubmitKlients']);
+
+
+//Редактирования
 Route::get('/data/editAmats/{id}', [DataController::class, 'editAmats']);
 Route::put('/data/updateAmats/{id}', [DataController::class, 'updateAmats']);
 
-// Редактирование Darbinieks
 Route::get('/data/editDarbinieks/{id}', [DataController::class, 'editDarbinieks']);
 Route::put('/data/updateDarbinieks/{id}', [DataController::class, 'updateDarbinieks']);
+
+Route::get('/data/editKlients/{id}', [DataController::class, 'editKlients']);
+Route::put('/data/updateKlients/{id}', [DataController::class, 'updateKlients']);
 
 // Route::post('/data/newSubmit', function(){
 //     return dd(Request->all());

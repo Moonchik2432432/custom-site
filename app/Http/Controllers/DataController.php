@@ -128,6 +128,30 @@ public function newSubmitAmats(Request $amati)
     return redirect('data/allAmats')->with('success', 'Ziņa veiksmīgi nosūtīta!');
 }
 
+
+public function createKlients()
+{
+    return view('createKlients'); 
+}
+
+public function newSubmitKlients(Request $klienti)
+{
+    $validated = $request->validate([
+        'Uznenuma_nosaukums' => 'required|string|min:3|max:90',
+        'Adrese' => 'required|string|min:3|max:90',
+        'Talrunis' => 'nullable|string|max:20',
+    ]);
+
+    $klienti = new Klients();
+    $klienti->Uznenuma_nosaukums = $klienti->input('Uznenuma_nosaukums');
+    $klienti->Adrese = $klienti->input('Adrese');
+    $klienti->Talrunis = $klienti->input('Talrunis');
+    $klienti->save();
+
+    return redirect('data/allKlients')->with('success', 'Ziņa veiksmīgi nosūtīta!');
+}
+
+
 public function createDarbinieks()
 {
     $amati = Amats::all(); // чтобы выбрать должность
@@ -181,6 +205,35 @@ public function updateAmats(Request $request, $id)
     $amats->save();
     return redirect('/data/allAmats')->with('success', 'Amats veiksmīgi atjaunināts!');
 }
+
+
+public function editKlients($id)
+{
+    $klients = Klients::find($id);
+    if (!$klients) {
+        return redirect('/data/allKlients')->with('error', 'Klients nav!');
+    }
+    return view('editKlients', ['klients' => $klients]);
+}
+
+public function updateKlients(Request $request, $id)
+{
+    $validated = $request->validate([
+        'Uznenuma_nosaukums' => 'required|string|min:3|max:90',
+        'Adrese' => 'required|string|min:3|max:90',
+        'Talrunis' => 'nullable|string|max:20',
+    ]);
+    $klients = Klients::find($id);
+    if (!klients) {
+        return redirect('/data/allKlients')->with('error', 'Klients nav!');
+    }
+    $klients->Uznenuma_nosaukums = $request->input('Uznenuma_nosaukums');
+    $klients->Adrese = $request->input('Adrese');
+    $klients->Talrunis = $request->input('Talrunis');
+    $klients->save();
+    return redirect('/data/allKlients')->with('success', 'Klients veiksmīgi atjaunināts!');
+}
+
 
 public function editDarbinieks($id)
 {
