@@ -224,7 +224,7 @@ public function updateKlients(Request $request, $id)
         'Talrunis' => 'nullable|string|max:20',
     ]);
     $klients = Klients::find($id);
-    if (!klients) {
+    if (!$klients) {
         return redirect('/data/allKlients')->with('error', 'Klients nav!');
     }
     $klients->Uznenuma_nosaukums = $request->input('Uznenuma_nosaukums');
