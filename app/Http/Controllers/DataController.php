@@ -143,9 +143,9 @@ public function newSubmitKlients(Request $klienti)
     ]);
 
     $klients = new Klients();
-    $klients->Uznenuma_nosaukums = $klients->input('Uznenuma_nosaukums');
-    $klients->Adrese = $klients->input('Adrese');
-    $klients->Talrunis = $klients->input('Talrunis');
+    $klients->Uznenuma_nosaukums = $klienti->input('Uznenuma_nosaukums');
+    $klients->Adrese = $klienti->input('Adrese');
+    $klients->Talrunis = $klienti->input('Talrunis');
     $klients->save();
 
     return redirect('data/allKlients')->with('success', 'Ziņa veiksmīgi nosūtīta!');
