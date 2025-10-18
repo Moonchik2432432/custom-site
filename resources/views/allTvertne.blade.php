@@ -4,6 +4,11 @@
 
 <div class="container mt-4">
     <h1 class="mb-4">Tvertne tabula</h1>
+
+    <a href="/data/createTvertne">
+        <button class="btn btn-success btn-sm">Pievinot</button>
+    </a> <br> <br>
+
  <!---Проверка на наличия таблицы-->
     @if($tvertne->isEmpty())
         <p>Datus nav.</p>
@@ -35,6 +40,9 @@
                             </a>
                             <a href="/data/all/{{$item->id}}/showTvertneDetails">
                                 <button class="btn btn-success btn-sm">Informacija</button>
+                            </a>
+                            <a href="/data/editTvertne/{{$item->id}}">
+                                <button class="btn btn-warning btn-sm">Rediģēt</button>
                             </a>
                         </td>
                     </tr>

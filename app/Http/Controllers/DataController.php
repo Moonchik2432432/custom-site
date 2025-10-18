@@ -151,6 +151,26 @@ public function newSubmitKlients(Request $klienti)
     return redirect('data/allKlients')->with('success', 'Ziņa veiksmīgi nosūtīta!');
 }
 
+public function createTvertne()
+{
+    return view('createTvertne'); 
+}
+
+public function newSubmitTvertne(Request $tvertni)
+{
+    $validated = $tvertni->validate([
+        'Nosaukums' => 'required|string|min:3|max:90',
+        'UdensApjoms_L' => 'required|integer',
+    ]);
+
+    $tvertne = new Tvertne();
+    $tvertne->Nosaukums = $tvertni->input('Uznenuma_nosaukums');
+    $tvertne->UdensApjoms_L = $tvertni->input('UdensApjoms_L');
+    $tvertne->save();
+
+    return redirect('data/allTvertne')->with('success', 'Ziņa veiksmīgi nosūtīta!');
+}
+
 
 public function createDarbinieks()
 {
@@ -232,6 +252,32 @@ public function updateKlients(Request $request, $id)
     $klients->Talrunis = $request->input('Talrunis');
     $klients->save();
     return redirect('/data/allKlients')->with('success', 'Klients veiksmīgi atjaunināts!');
+}
+
+
+public function editTvertne($id)
+{
+    $tvertne = Tvertne::find($id);
+    if (!$tvertne) {
+        return redirect('/data/allTvertne')->with('error', 'Tvertne nav!');
+    }
+    return view('editTvertne', ['tvertne' => $tvertne]);
+}
+
+public function updateTvertne(Request $request, $id)
+{
+    $validated = $request->validate([
+        'Nosaukums' => 'required|string|min:3|max:90',
+        'UdensApjoms_L' => 'required|integer',
+    ]);
+    $tvertne = Tvertne::find($id);
+    if (!$tvertne) {
+        return redirect('/data/allTvertne')->with('error', 'Tvertne nav!');
+    }
+    $tvertne->Nosaukums = $request->input('Tvertne');
+    $tvertne->UdensApjoms_L = $request->input('UdensApjoms_L');
+    $tvertne->save();
+    return redirect('/data/allTvertne')->with('success', 'Tvertne veiksmīgi atjaunināts!');
 }
 
 
