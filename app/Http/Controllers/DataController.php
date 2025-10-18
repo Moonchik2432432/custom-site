@@ -164,7 +164,7 @@ public function newSubmitTvertne(Request $tvertni)
     ]);
 
     $tvertne = new Tvertne();
-    $tvertne->Nosaukums = $tvertni->input('Uznenuma_nosaukums');
+    $tvertne->Nosaukums = $tvertni->input('Nosaukums');
     $tvertne->UdensApjoms_L = $tvertni->input('UdensApjoms_L');
     $tvertne->save();
 
@@ -274,7 +274,7 @@ public function updateTvertne(Request $request, $id)
     if (!$tvertne) {
         return redirect('/data/allTvertne')->with('error', 'Tvertne nav!');
     }
-    $tvertne->Nosaukums = $request->input('Tvertne');
+    $tvertne->Nosaukums = $request->input('Nosaukums');
     $tvertne->UdensApjoms_L = $request->input('UdensApjoms_L');
     $tvertne->save();
     return redirect('/data/allTvertne')->with('success', 'Tvertne veiksmīgi atjaunināts!');
