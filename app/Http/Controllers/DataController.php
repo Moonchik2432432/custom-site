@@ -136,17 +136,17 @@ public function createKlients()
 
 public function newSubmitKlients(Request $klienti)
 {
-    $validated = $request->validate([
+    $validated = $klienti->validate([
         'Uznenuma_nosaukums' => 'required|string|min:3|max:90',
         'Adrese' => 'required|string|min:3|max:90',
         'Talrunis' => 'nullable|string|max:20',
     ]);
 
-    $klienti = new Klients();
-    $klienti->Uznenuma_nosaukums = $klienti->input('Uznenuma_nosaukums');
-    $klienti->Adrese = $klienti->input('Adrese');
-    $klienti->Talrunis = $klienti->input('Talrunis');
-    $klienti->save();
+    $klients = new Klients();
+    $klients->Uznenuma_nosaukums = $klients->input('Uznenuma_nosaukums');
+    $klients->Adrese = $klients->input('Adrese');
+    $klients->Talrunis = $klients->input('Talrunis');
+    $klients->save();
 
     return redirect('data/allKlients')->with('success', 'Ziņa veiksmīgi nosūtīta!');
 }
