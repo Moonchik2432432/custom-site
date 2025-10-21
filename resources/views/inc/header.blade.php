@@ -38,7 +38,7 @@
                     </form>
                 @else
                     <a href="{{ route('login') }}" class="btn btn-outline-primary me-2">Login</a>
-                    <a href="{{ route('loginn') }}" class="btn btn-primary">Sign-up</a>
+                    <a href="{{ route('register') }}" class="btn btn-primary">Sign-up</a>
                 @endauth
             </div>
         </div>

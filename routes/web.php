@@ -17,11 +17,11 @@ Route::get('/contacts', function () {
 // Публичные маршруты логина/регистрации
 Route::get('/login', function () {
     return view('login');
-})->name('login'); 
+})->name('login');
 
-Route::get('/loginn', function () {
-    return view('loginn');
-})->name('loginn');
+Route::get('/register', function () {
+    return view('register');
+})->name('register');
 
 // POST маршруты логина/регистрации
 Route::post('/loginp', [LoginController::class, 'login']);
