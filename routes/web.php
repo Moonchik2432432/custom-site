@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\DataController;
 
 Route::get('/', function () {
@@ -59,10 +60,24 @@ Route::put('/data/updateKlients/{id}', [DataController::class, 'updateKlients'])
 Route::get('/data/editTvertne/{id}', [DataController::class, 'editTvertne']);
 Route::put('/data/updateTvertne/{id}', [DataController::class, 'updateTvertne']);
 
-//login and registret
+//ja uzraktit login tiks atverta lapa data
 Route::get('/login', function () {
     return view('login');
-});
+})->name('login');//ja uzraktit loginn tiks atverta lapa data
+Route::get('/loginn', function () {
+    return view('loginn');
+})->name('loginn');
+
+Route::post('/register','App\Http\Controllers\LoginController@register');
+Route::post('/loginp','App\Http\Controllers\LoginController@login');
+
+route::get('/logout', function(){
+    Auth::logout();
+    request()->session()->invalidate();
+    request()->session()->regenerateToken();
+    return redirect('/');
+
+})->name('logout');
 
 // Route::post('/data/newSubmit', function(){
 //     return dd(Request->all());
