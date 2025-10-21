@@ -1,5 +1,5 @@
 <nav class="sidebar d-flex flex-column">
-    <a href="{{ url('/') }}" class="d-flex align-items-center mb-3 text-decoration-none fs-4">
+    <a href="/" class="d-flex align-items-center mb-3 text-decoration-none fs-4">
       <svg xmlns="http://www.w3.org/2000/svg" width="40" height="32" fill="currentColor" class="bi bi-bootstrap" viewBox="0 0 16 16">
         <path d="M5.062 12.1H6.5v1.3H5.062v-1.3zm0-6.5H6.5v1.3H5.062v-1.3zm4.938 3.25H7.4v1.3h2.6v-1.3z"/>
       </svg>
@@ -10,17 +10,17 @@
 
     <ul class="nav nav-pills flex-column mb-auto">
       <li class="nav-item">
-        <a href="{{ url('/') }}" class="nav-link {{ request()->is('/') ? 'active' : '' }}">Maja</a>
+        <a href="/" class="nav-link">Maja</a>
       </li>
 
       @auth
       <li>
-        <a href="{{ url('/data') }}" class="nav-link {{ request()->is('data*') ? 'active' : '' }}">Data</a>
+        <a href="/data" class="nav-link">Data</a>
       </li>
       @endauth
 
       <li>
-        <a href="{{ url('/contacts') }}" class="nav-link {{ request()->is('contacts') ? 'active' : '' }}">Kontakts</a>
+        <a href="/contacts" class="nav-link">Kontakts</a>
       </li>
     </ul>
 
@@ -44,7 +44,7 @@
         </li>
       </ul>
       @else
-      <a href="{{ route('login') }}" class="btn btn-outline-primary">Login</a>
+      <a href="/login" class="btn btn-outline-primary">Login</a>
       @endauth
     </div>
 </nav>
