@@ -22,7 +22,9 @@
         <a href="/" class="nav-link active" aria-current="page">Maja</a>
       </li>
       <li>
-        <a href="/data" class="nav-link">Data</a>
+        <a href="{{ url('/data') }}" class="nav-link {{ request()->is('data*') ? 'link-secondary' : 'link-dark' }}">
+            Data
+        </a>
       </li>
       <li>
         <a href="/contacts" class="nav-link">Kontakts</a>
