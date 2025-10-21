@@ -3,7 +3,7 @@
 @section('content')
     <h1>Ielogošanas logs</h1>
 
-    <form method="POST" action="/loginp">
+    <form method="POST" action="/login">
         @csrf
 
         <label for="name" class="form-label">Login</label><br>
