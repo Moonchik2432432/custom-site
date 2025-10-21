@@ -24,7 +24,7 @@ Route::get('/register', function () {
 })->name('register');
 
 // POST маршруты логина/регистрации
-Route::post('/loginp', [LoginController::class, 'login']);
+Route::post('/login', [LoginController::class, 'login']);
 Route::post('/register', [LoginController::class, 'register']);
 
 // Logout
