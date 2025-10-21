@@ -13,7 +13,7 @@
         <svg xmlns="http://www.w3.org/2000/svg" width="40" height="32" fill="currentColor" class="bi bi-bootstrap" viewBox="0 0 16 16">
           <path d="M5.062 12.1H6.5v1.3H5.062v-1.3zm0-6.5H6.5v1.3H5.062v-1.3zm4.938 3.25H7.4v1.3h2.6v-1.3z"/>
         </svg>
-        <span class="ms-2">Sidebar</span>
+        <span class="ms-2">SuperWater2000+</span>
       </a>
 
       <hr />

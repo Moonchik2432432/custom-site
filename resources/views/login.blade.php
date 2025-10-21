@@ -1,18 +1,41 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>Ielogošanas logs</h1>
+<div class="container mt-4" style="max-width: 400px;">
 
-    <form method="POST" action="/loginp">
+    <h2>Login</h2>
+
+    {{-- Вывод сообщения pazinojumi --}}
+    @if(session('pazinojumi'))
+        <div class="alert alert-danger">
+            {{ session('pazinojumi') }}
+        </div>
+    @endif
+
+    {{-- Вывод ошибок валидации --}}
+    @if($errors->any())
+        <div class="alert alert-danger">
+            <ul class="mb-0">
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
+    <form method="POST" action="{{ route('login') }}">
         @csrf
+        <div class="mb-3">
+            <label for="name" class="form-label">Lietotājvārds</label>
+            <input type="text" name="name" id="name" value="{{ old('name') }}" class="form-control" required autofocus>
+        </div>
 
-        <label for="name" class="form-label">Login</label><br>
-        <input type="text" class="form-control" id="name" name="name"><br>
+        <div class="mb-3">
+            <label for="password" class="form-label">Parole</label>
+            <input type="password" name="password" id="password" class="form-control" required>
+        </div>
 
-        <label for="password" class="form-label">Parole:</label><br>
-        <input type="password" class="form-control" id="password" name="password"><br>
-
-        <button type="submit" class="btn btn-outline-dark">Ieiet</button>
-        <a href="{{ route('register') }}" class="btn btn-info">Reģistrēties</a>
+        <button type="submit" class="btn btn-primary">Ielogoties</button>
     </form>
+</div>
 @endsection
