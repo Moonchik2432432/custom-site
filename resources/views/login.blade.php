@@ -13,6 +13,6 @@
         <input type="password" class="form-control" id="password" name="password"><br>
 
         <button type="submit" class="btn btn-outline-dark">Ieiet</button>
-        <a href="{{ route('loginn') }}" class="btn btn-info">Reģistrēties</a>
+        <a href="{{ route('register') }}" class="btn btn-info">Reģistrēties</a>
     </form>
 @endsection
