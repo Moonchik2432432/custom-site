@@ -24,7 +24,7 @@ class LoginController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->intended('/data/allRaza');
+            return redirect()->intended('/data');
         }
 
         return back()->withErrors([

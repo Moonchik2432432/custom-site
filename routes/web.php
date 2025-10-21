@@ -27,7 +27,7 @@ Route::get('/register', function () {
 Route::post('/loginp', [LoginController::class, 'login']);
 Route::post('/register', [LoginController::class, 'register']);
 
-// Logout — лучше POST
+// Logout
 Route::post('/logout', function () {
     Auth::logout();
     request()->session()->invalidate();
