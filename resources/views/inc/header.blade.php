@@ -10,7 +10,7 @@
           </svg>
           <div>
             <span class="fs-4 fw-bold">SuperWater2000+</span><br/>
-            <small class="text-muted fst-italic">Чистая вода — источник жизни</small>
+            <small class="text-muted fst-italic">Tīrs ūdens ir dzīvības avots</small>
           </div>
         </a>
 
