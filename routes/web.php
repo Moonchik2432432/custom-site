@@ -59,6 +59,11 @@ Route::put('/data/updateKlients/{id}', [DataController::class, 'updateKlients'])
 Route::get('/data/editTvertne/{id}', [DataController::class, 'editTvertne']);
 Route::put('/data/updateTvertne/{id}', [DataController::class, 'updateTvertne']);
 
+//login and registret
+Route::get('/login', function () {
+    return view('login');
+});
+
 // Route::post('/data/newSubmit', function(){
 //     return dd(Request->all());
 // });
