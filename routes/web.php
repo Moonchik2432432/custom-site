@@ -17,7 +17,7 @@ Route::get('/contacts', function () {
 // Публичные маршруты логина/регистрации
 Route::get('/login', function () {
     return view('login');
-})->name('login'); // Laravel auth middleware ищет маршрут с именем 'login'
+})->name('login'); 
 
 Route::get('/loginn', function () {
     return view('loginn');
@@ -36,7 +36,7 @@ Route::post('/logout', function () {
 })->name('logout');
 
 
-// 👇👇👇 ЗАЩИЩЕННЫЕ маршруты для авторизованных пользователей
+// ЗАЩИЩЕННЫЕ маршруты для авторизованных пользователей
 Route::middleware(['auth'])->group(function () {
 
     Route::get('/data', function () {
