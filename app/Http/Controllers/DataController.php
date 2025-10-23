@@ -174,12 +174,11 @@ public function newSubmitTvertne(Request $tvertni)
 
 public function createDarbinieks()
 {
-    $amati = Amats::all(); // чтобы выбрать должность
-    return view('createDarbinieks', ['amati' => $amati]); 
+    return view('createDarbinieks'); 
 }
-public function newSubmitDarbinieks(Request $request)
+public function newSubmitDarbinieks(Request $darbinieki)
 {
-    $validated = $request->validate([
+    $validated = $darbinieki->validate([
         'Vards' => 'required|string|max:255',
         'Uzvards' => 'required|string|max:255',
         'Amats_ID' => 'required|integer', // проверка просто число, без проверки существования
@@ -188,14 +187,15 @@ public function newSubmitDarbinieks(Request $request)
 
 
         $darbinieks = new Darbinieks();
-        $darbinieks->Vards = $request->input('Vards');
-        $darbinieks->Uzvards = $request->input('Uzvards');
-        $darbinieks->Amats_ID = $request->input('Amats_ID');
-        $darbinieks->Talrunis = $request->input('Talrunis');
+        $darbinieks->Vards = $darbinieki->input('Vards');
+        $darbinieks->Uzvards = $darbinieki->input('Uzvards');
+        $darbinieks->Amats_ID = $darbinieki->input('Amats_ID');
+        $darbinieks->Talrunis = $darbinieki->input('Talrunis');
         $darbinieks->save();
 
     return redirect('/data/allDarbinieks')->with('success', 'Darbinieks veiksmīgi pievienots!');
 }
+
 
 //______________________________________________________
 //Редактирования
