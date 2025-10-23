@@ -29,14 +29,6 @@
             <label for="Talrunis">Talrunis</label>
             <input type="text" class="form-control" name="Talrunis" value="{{ $darbinieks->Talrunis }}">
         </div>
-        <div class="mb-3">
-            <label for="Lietotajs">Lietotajs</label>
-            <input type="text" class="form-control" name="Lietotajs" value="{{ $darbinieks->Lietotajs }}">
-        </div>
-        <div class="mb-3">
-            <label for="Parole">Parole (atstāt tukšu, lai nemainītu)</label>
-            <input type="password" class="form-control" name="Parole">
-        </div>
 
         <button type="submit" class="btn btn-warning">Atjaunināt</button>
     </form>

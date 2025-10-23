@@ -184,8 +184,6 @@ public function newSubmitDarbinieks(Request $request)
         'Uzvards' => 'required|string|max:255',
         'Amats_ID' => 'required|integer', // проверка просто число, без проверки существования
         'Talrunis' => 'nullable|string|max:20',
-        'Lietotajs' => 'required|string|max:50',
-        'Parole' => 'required|string|max:255',
     ]);
 
 
@@ -194,8 +192,6 @@ public function newSubmitDarbinieks(Request $request)
         $darbinieks->Uzvards = $request->input('Uzvards');
         $darbinieks->Amats_ID = $request->input('Amats_ID');
         $darbinieks->Talrunis = $request->input('Talrunis');
-        $darbinieks->Lietotajs = $request->input('Lietotajs');
-        $darbinieks->Parole = $request->input('Parole');
         $darbinieks->save();
 
     return redirect('/data/allDarbinieks')->with('success', 'Darbinieks veiksmīgi pievienots!');
@@ -298,8 +294,6 @@ $validated = $request->validate([
     'Uzvards' => 'required|string|max:255',
     'Amats_ID' => 'required|integer', // проверка просто число, без проверки существования
     'Talrunis' => 'nullable|string|max:20',
-    'Lietotajs' => 'required|string|max:50',
-    'Parole' => 'required|string|max:255',
 ]);
 
     $darbinieks = Darbinieks::find($id);
@@ -312,8 +306,6 @@ $validated = $request->validate([
     $darbinieks->Uzvards = $request->input('Uzvards');
     $darbinieks->Amats_ID = $request->input('Amats_ID');
     $darbinieks->Talrunis = $request->input('Talrunis');
-    $darbinieks->Lietotajs = $request->input('Lietotajs');
-    $darbinieks->Parole = $request->input('Parole');
     $darbinieks->save();
 
     return redirect('/data/allDarbinieks')->with('success', 'Darbinieks veiksmīgi atjaunināts!');

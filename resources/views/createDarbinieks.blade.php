@@ -28,14 +28,6 @@
             <label for="Talrunis">Talrunis</label>
             <input type="text" class="form-control" name="Talrunis">
         </div>
-        <div class="mb-3">
-            <label for="Lietotajs">Lietotajs</label>
-            <input type="text" class="form-control" name="Lietotajs">
-        </div>
-        <div class="mb-3">
-            <label for="Parole">Parole</label>
-            <input type="password" class="form-control" name="Parole">
-        </div>
 
         <button type="submit" class="btn btn-success">Saglabāt</button>
     </form>
